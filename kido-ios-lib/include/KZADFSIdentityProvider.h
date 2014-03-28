@@ -1,3 +1,10 @@
+/**
+ * Active Directory Federation Services Identity Provider
+ *
+ * @author kidozen
+ * @version 1.00, April 2013
+ *
+ */
 #import <Foundation/Foundation.h>
 #import "KZHTTPClient.h"
 #import "KZIdentityProvider.h"
@@ -12,5 +19,5 @@
 }
 @property (nonatomic, strong) NSString * token;
 @property (nonatomic, strong) RequestTokenCompletionBlock requestCompletion;
-
+@property (atomic) BOOL bypassSSLValidation;
 @end

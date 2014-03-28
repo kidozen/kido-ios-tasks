@@ -30,6 +30,7 @@ typedef NSUInteger KZHTTPRequestMethod;
                               parameters:(NSDictionary*)parameters 
                               completion:(void (^)(id response, NSHTTPURLResponse *urlResponse, NSError* error))completionBlock;
 
+@property (nonatomic, readwrite) BOOL bypassSSLValidation;
 @property (nonatomic, strong) NSString *userAgent;
 @property (nonatomic, readwrite) BOOL sendParametersAsJSON;
 @property (nonatomic, readwrite) NSURLRequestCachePolicy cachePolicy;

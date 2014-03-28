@@ -2,5 +2,5 @@
 #import "KZIdentityProvider.h"
 
 @interface KZIdentityProviderFactory : NSObject
-+(id<KZIdentityProvider>) createProvider:(NSString *) type;
++(id<KZIdentityProvider>) createProvider:(NSString *) type bypassSSL:(BOOL) bypassSSL;
 @end

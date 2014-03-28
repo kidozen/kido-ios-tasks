@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA6CFF171681137B00AA61C5 /* libkidozen.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA6CFF161681137B00AA61C5 /* libkidozen.client.a */; };
+		AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */; };
+		AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */; };
 		AABD57341676173B00445A2A /* NewTaskAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AABD57331676173B00445A2A /* NewTaskAlertView.m */; };
 		AABD57B01676441300445A2A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57AF1676441300445A2A /* Security.framework */; };
 		AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B21676441900445A2A /* libicucore.dylib */; };
@@ -29,7 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AA6CFF161681137B00AA61C5 /* libkidozen.client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkidozen.client.a; path = "kido-ios-lib/libkidozen.client.a"; sourceTree = "<group>"; };
+		AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "kido-ios-lib/libSocketRocket.a"; sourceTree = "<group>"; };
+		AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkidozen.client.a; path = "kido-ios-lib/libkidozen.client.a"; sourceTree = "<group>"; };
 		AABD57321676173B00445A2A /* NewTaskAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskAlertView.h; sourceTree = "<group>"; };
 		AABD57331676173B00445A2A /* NewTaskAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskAlertView.m; sourceTree = "<group>"; };
 		AABD57AF1676441300445A2A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -64,13 +66,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */,
 				AABD57B01676441300445A2A /* Security.framework in Frameworks */,
+				AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */,
 				AABD57B51676442100445A2A /* CFNetwork.framework in Frameworks */,
 				AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */,
 				AACFD34F1675368100E02A9F /* UIKit.framework in Frameworks */,
 				AACFD3511675368100E02A9F /* Foundation.framework in Frameworks */,
 				AACFD3531675368100E02A9F /* CoreGraphics.framework in Frameworks */,
-				AA6CFF171681137B00AA61C5 /* libkidozen.client.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +100,8 @@
 		AACFD34D1675368100E02A9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA6CFF161681137B00AA61C5 /* libkidozen.client.a */,
+				AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */,
+				AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */,
 				AABD57B41676442100445A2A /* CFNetwork.framework */,
 				AABD57B21676441900445A2A /* libicucore.dylib */,
 				AABD57AF1676441300445A2A /* Security.framework */,
@@ -300,10 +304,11 @@
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/kido-ios-lib\"",
+					"\\\\\\\"$(SRCROOT)/kido-ios-lib\\\\\\\"",
+					"/Users/christian/sources/kido-ios-tasks/kido-ios-lib",
 				);
 				OTHER_LDFLAGS = (
-					"-objC",
+					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -320,10 +325,11 @@
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/kido-ios-lib\"",
+					"\\\\\\\"$(SRCROOT)/kido-ios-lib\\\\\\\"",
+					"/Users/christian/sources/kido-ios-tasks/kido-ios-lib",
 				);
 				OTHER_LDFLAGS = (
-					"-objC",
+					"-ObjC",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

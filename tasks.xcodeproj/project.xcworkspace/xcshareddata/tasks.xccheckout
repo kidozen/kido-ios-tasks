@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>38D7AB67-00A0-4EFA-9C0C-24780ABF5B45</string>
+	<key>IDESourceControlProjectName</key>
+	<string>tasks</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>98AB0484-28A7-42F0-ABD3-457EE6550A3C</key>
+		<string>https://github.com/kidozen/kido-ios-tasks.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>tasks.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>98AB0484-28A7-42F0-ABD3-457EE6550A3C</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kidozen/kido-ios-tasks.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>98AB0484-28A7-42F0-ABD3-457EE6550A3C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>98AB0484-28A7-42F0-ABD3-457EE6550A3C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>kido-ios-tasks</string>
+		</dict>
+	</array>
+</dict>
+</plist>
