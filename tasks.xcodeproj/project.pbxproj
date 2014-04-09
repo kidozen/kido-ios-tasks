@@ -304,8 +304,7 @@
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/kido-ios-lib\\\\\\\"",
-					"/Users/christian/sources/kido-ios-tasks/kido-ios-lib",
+					"$(SRCROOT)/kido-ios-lib",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -325,8 +324,7 @@
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\"$(SRCROOT)/kido-ios-lib\\\\\\\"",
-					"/Users/christian/sources/kido-ios-tasks/kido-ios-lib",
+					"$(SRCROOT)/kido-ios-lib",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
