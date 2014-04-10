@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D15D58318F6DD690081413A /* libc++.dylib */; };
 		AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */; };
 		AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */; };
 		AABD57341676173B00445A2A /* NewTaskAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AABD57331676173B00445A2A /* NewTaskAlertView.m */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D15D58318F6DD690081413A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "kido-ios-lib/libSocketRocket.a"; sourceTree = "<group>"; };
 		AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkidozen.client.a; path = "kido-ios-lib/libkidozen.client.a"; sourceTree = "<group>"; };
 		AABD57321676173B00445A2A /* NewTaskAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskAlertView.h; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */,
 				AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */,
 				AABD57B01676441300445A2A /* Security.framework in Frameworks */,
 				AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */,
@@ -100,6 +103,7 @@
 		AACFD34D1675368100E02A9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D15D58318F6DD690081413A /* libc++.dylib */,
 				AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */,
 				AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */,
 				AABD57B41676442100445A2A /* CFNetwork.framework */,
