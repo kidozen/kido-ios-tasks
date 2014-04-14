@@ -36,6 +36,8 @@ static CGFloat kNavigationBarOffset = 64;
     [self registerForKeyboardNotifications];
     [self addHideTapGestureRecognizer];
     
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
 
         self.automaticallyAdjustsScrollViewInsets  = NO;
@@ -47,7 +49,8 @@ static CGFloat kNavigationBarOffset = 64;
         self.scrollView.frameSize = sz;
         self.scrollView.contentSize = CGSizeMake(320, self.okButton.frameMaxY + 5);
     }
-    
+#endif
+
     self.title = @"New Task";
     [self addCancelButton];
     
