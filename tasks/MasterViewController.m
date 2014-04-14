@@ -1,6 +1,8 @@
 #import "MasterViewController.h"
 #import "TasksViewController.h"
 #import "NewTaskAlertView.h"
+#import "NewTaskViewController.h"
+
 #import <KZStorage.h>
 
 @interface MasterViewController () {
@@ -47,8 +49,26 @@
 
 - (void)insertNewTask:(id)sender
 {
-    _newTaskAlertView = [[NewTaskAlertView alloc] initWithTitle:@"New task" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitle:@"Ok"];
-    [_newTaskAlertView show];
+    NewTaskViewController *newTaskVC = [[NewTaskViewController alloc] init];
+    newTaskVC.didEnterNewTask = ^(NSString *titleString, NSString *description) {
+        if (!_tasksStorage) {
+            _tasksStorage = [[taskApplicationDelegate kidozenApplication] StorageWithName:@"tasks"];
+        }
+        
+        NSDictionary *params = @{@"title": titleString,
+                                 @"desc": description,
+                                 @"completed": @(NO)};
+        
+        [_tasksStorage create:params completion:^(KZResponse * kr) {
+            NSAssert(!kr.error, @"error must be null");
+        }];
+
+    };
+    
+    UINavigationController *newTaskNav = [[UINavigationController alloc] initWithRootViewController:newTaskVC];
+    [self.navigationController presentViewController:newTaskNav animated:YES completion:^{
+        
+    }];
 }
 
 #pragma mark - Table View
@@ -95,24 +115,6 @@
         NSString *object = _objects[indexPath.row];
         [[segue destinationViewController] setTasksType:object];
     }
-}
-
-// CREATE TASK
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (!_tasksStorage) {
-        _tasksStorage = [[taskApplicationDelegate kidozenApplication] StorageWithName:@"tasks"];
-    }
-
-    NSDictionary * t = [NSDictionary dictionaryWithObjectsAndKeys:
-                        [[_newTaskAlertView titleTextField] text],@"title",
-                        [[_newTaskAlertView descriptionTextField] text], @"desc",
-                        [NSNumber numberWithBool:false], @"completed",
-                        nil];
-    [_tasksStorage create:t completion:^(KZResponse * kr) {
-        NSAssert(!kr.error, @"error must be null");
-    }];
 }
 
 @end

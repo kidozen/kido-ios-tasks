@@ -1,4 +1,4 @@
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController <UIAlertViewDelegate>
+@interface MasterViewController : UITableViewController 
 @end
