@@ -13,7 +13,6 @@
 		6DBE413D18FC2B4A00EB2613 /* NewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */; };
 		AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */; };
 		AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */; };
-		AABD57341676173B00445A2A /* NewTaskAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AABD57331676173B00445A2A /* NewTaskAlertView.m */; };
 		AABD57B01676441300445A2A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57AF1676441300445A2A /* Security.framework */; };
 		AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B21676441900445A2A /* libicucore.dylib */; };
 		AABD57B51676442100445A2A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B41676442100445A2A /* CFNetwork.framework */; };
@@ -42,8 +41,6 @@
 		6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskViewController.xib; sourceTree = "<group>"; };
 		AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "kido-ios-lib/libSocketRocket.a"; sourceTree = "<group>"; };
 		AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkidozen.client.a; path = "kido-ios-lib/libkidozen.client.a"; sourceTree = "<group>"; };
-		AABD57321676173B00445A2A /* NewTaskAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskAlertView.h; sourceTree = "<group>"; };
-		AABD57331676173B00445A2A /* NewTaskAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskAlertView.m; sourceTree = "<group>"; };
 		AABD57AF1676441300445A2A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AABD57B21676441900445A2A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		AABD57B41676442100445A2A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -138,8 +135,6 @@
 				AACFD37916753CB700E02A9F /* TasksViewController.m */,
 				AACFD36C1675368100E02A9F /* DetailViewController.h */,
 				AACFD36D1675368100E02A9F /* DetailViewController.m */,
-				AABD57321676173B00445A2A /* NewTaskAlertView.h */,
-				AABD57331676173B00445A2A /* NewTaskAlertView.m */,
 				6DBE413918FC2B4A00EB2613 /* NewTaskViewController.h */,
 				6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */,
 				6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */,
@@ -238,7 +233,6 @@
 				AACFD36E1675368100E02A9F /* DetailViewController.m in Sources */,
 				6DBE413C18FC2B4A00EB2613 /* NewTaskViewController.m in Sources */,
 				AACFD37A16753CB700E02A9F /* TasksViewController.m in Sources */,
-				AABD57341676173B00445A2A /* NewTaskAlertView.m in Sources */,
 				AABD57CE167646AD00445A2A /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
