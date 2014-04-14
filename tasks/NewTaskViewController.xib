@@ -97,6 +97,8 @@
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 									<int key="IBUIAutocorrectionType">1</int>
+									<int key="IBUIReturnKeyType">4</int>
+									<bool key="IBUIEnablesReturnKeyAutomatically">YES</bool>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework-SevenAndLater</string>
 								</object>
 								<int key="IBUIClearButtonMode">1</int>
@@ -264,6 +266,14 @@
 					<string key="id">3</string>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="168909026"/>
+						<reference key="destination" ref="195338539"/>
+					</object>
+					<string key="id">4NV-3r-dsS</string>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">okButtonPressed:</string>
 						<reference key="source" ref="403356117"/>
@@ -271,6 +281,14 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<string key="id">8SY-R1-K03</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="837790198"/>
+						<reference key="destination" ref="195338539"/>
+					</object>
+					<string key="id">9fD-K5-aeR</string>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -379,17 +397,20 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">NewTaskViewController</string>
 					<string key="superclassName">UIViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">okButtonPressed:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">okButtonPressed:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="donePressed:">id</string>
+						<string key="okButtonPressed:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="donePressed:">
+							<string key="name">donePressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="okButtonPressed:">
 							<string key="name">okButtonPressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="descriptionTextView">UITextView</string>
 						<string key="okButton">UIButton</string>

@@ -156,4 +156,48 @@ static CGFloat kNavigationBarOffset = 64;
     }
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    UIView *accessoryView=[[[NSBundle mainBundle] loadNibNamed:@"CancelDoneToolBar"
+                                                         owner:self
+                                                       options:nil]
+                           lastObject];
+    
+    textField.inputAccessoryView=accessoryView;
+    accessoryView=nil;
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.descriptionTextView becomeFirstResponder];
+    return NO;
+}
+
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView
+{
+    UIView *accessoryView=[[[NSBundle mainBundle] loadNibNamed:@"CancelDoneToolBar"
+                                                         owner:self
+                                                       options:nil]
+                           lastObject];
+
+    textView.inputAccessoryView = accessoryView;
+    return YES;
+}
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    return YES;
+}
+
+- (IBAction)donePressed:(id)sender
+{
+    [self hideKeyboard];
+}
+
 @end

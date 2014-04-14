@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D15D58318F6DD690081413A /* libc++.dylib */; };
 		6D3B4E9518FC362D004CCE88 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B4E9418FC362D004CCE88 /* UIView+Frame.m */; };
+		6D3B4EA218FC815F004CCE88 /* CancelDoneToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B4EA118FC815F004CCE88 /* CancelDoneToolBar.xib */; };
 		6DBE413C18FC2B4A00EB2613 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */; };
 		6DBE413D18FC2B4A00EB2613 /* NewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */; };
 		AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */; };
@@ -36,6 +37,7 @@
 		6D15D58318F6DD690081413A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		6D3B4E9318FC362D004CCE88 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		6D3B4E9418FC362D004CCE88 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		6D3B4EA118FC815F004CCE88 /* CancelDoneToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CancelDoneToolBar.xib; sourceTree = "<group>"; };
 		6DBE413918FC2B4A00EB2613 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskViewController.xib; sourceTree = "<group>"; };
@@ -138,9 +140,10 @@
 				6DBE413918FC2B4A00EB2613 /* NewTaskViewController.h */,
 				6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */,
 				6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */,
-				AACFD3551675368100E02A9F /* Supporting Files */,
 				6D3B4E9318FC362D004CCE88 /* UIView+Frame.h */,
 				6D3B4E9418FC362D004CCE88 /* UIView+Frame.m */,
+				6D3B4EA118FC815F004CCE88 /* CancelDoneToolBar.xib */,
+				AACFD3551675368100E02A9F /* Supporting Files */,
 			);
 			path = tasks;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				AACFD3631675368100E02A9F /* Default@2x.png in Resources */,
 				AACFD3651675368100E02A9F /* Default-568h@2x.png in Resources */,
 				6DBE413D18FC2B4A00EB2613 /* NewTaskViewController.xib in Resources */,
+				6D3B4EA218FC815F004CCE88 /* CancelDoneToolBar.xib in Resources */,
 				AACFD3681675368100E02A9F /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
