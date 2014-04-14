@@ -10,6 +10,7 @@
 #import "UIView+Frame.h"
 
 static CGFloat kIOS7FrameOffset = 64;
+static CGFloat kNavigationBarOffset = 64;
 
 @interface NewTaskViewController ()
 
@@ -23,10 +24,18 @@ static CGFloat kIOS7FrameOffset = 64;
 
 @implementation NewTaskViewController
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
+    [self registerForKeyboardNotifications];
+    [self addHideTapGestureRecognizer];
+    
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
 
         self.automaticallyAdjustsScrollViewInsets  = NO;
@@ -36,21 +45,44 @@ static CGFloat kIOS7FrameOffset = 64;
         sz.height = sz.height - self.scrollView.frameY;
         
         self.scrollView.frameSize = sz;
+        self.scrollView.contentSize = CGSizeMake(320, self.okButton.frameMaxY + 5);
     }
     
     self.title = @"New Task";
-    
     [self addCancelButton];
+    
+    self.titleTextField.accessibilityLabel = @"titleTextField";
+    self.descriptionTextView.accessibilityLabel = @"descriptionTextView";
+    self.okButton.accessibilityLabel = @"okButton";
 
 }
 
+- (void)addHideTapGestureRecognizer
+{
+    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [self.view addGestureRecognizer:gr];
+}
+
+- (void)hideKeyboard
+{
+    if ([self.titleTextField isFirstResponder]) {
+        [self.titleTextField resignFirstResponder];
+    } else if ([self.descriptionTextView isFirstResponder]) {
+        [self.descriptionTextView resignFirstResponder];
+    }
+}
 
 - (IBAction)okButtonPressed:(id)sender {
-    if (self.didEnterNewTask != nil) {
-        NSString *titleString = self.titleTextField.text;
-        NSString *description = self.descriptionTextView.text;
-        self.didEnterNewTask(titleString, description);
-        [self dismissViewControllerAnimated:YES completion:nil];
+    
+    if ([self.titleTextField.text length] > 0 &&
+        [self.descriptionTextView.text length] > 0) {
+        
+        if (self.didEnterNewTask != nil) {
+            NSString *titleString = self.titleTextField.text;
+            NSString *description = self.descriptionTextView.text;
+            self.didEnterNewTask(titleString, description);
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }
 }
 
@@ -60,6 +92,7 @@ static CGFloat kIOS7FrameOffset = 64;
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                target:self
                                                                                action:@selector(cancel)];
+    cancelButton.accessibilityLabel = @"cancelButton";
     self.navigationItem.leftBarButtonItem = cancelButton;
 
 }
@@ -67,6 +100,57 @@ static CGFloat kIOS7FrameOffset = 64;
 - (void)cancel
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGFloat keyboardHeight = [self heightForKeyboardInNotification:notification];
+    
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.scrollView.frameHeight = [UIScreen mainScreen].bounds.size.height - kNavigationBarOffset - keyboardHeight;
+        self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,
+                                                 self.okButton.frameMaxY + 5);
+
+    } completion:nil];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    CGFloat offset = IS_IOS_VERSION_7_OR_GREATER ? kIOS7FrameOffset : 0;
+    
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.scrollView.frameHeight = [UIScreen mainScreen].bounds.size.height - offset;
+        self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,
+                                                 self.okButton.frameMaxY + 5);
+
+    } completion:nil];
+}
+
+- (void)registerForKeyboardNotifications {
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(CGFloat) heightForKeyboardInNotification:(NSNotification*)aNotification {
+    
+    NSDictionary* info = [aNotification userInfo];
+    CGSize size = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        return size.height;
+    } else {
+        return size.width;
+    }
 }
 
 @end

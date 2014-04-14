@@ -1,13 +1,11 @@
 #import "MasterViewController.h"
 #import "TasksViewController.h"
-#import "NewTaskAlertView.h"
 #import "NewTaskViewController.h"
 
 #import <KZStorage.h>
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
-    NewTaskAlertView * _newTaskAlertView;
     KZStorage * _tasksStorage;
 }
 
@@ -15,12 +13,6 @@
 
 
 @implementation MasterViewController
-
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
 
 - (void)viewDidLoad
 {
@@ -42,11 +34,6 @@
 
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
-
 - (void)insertNewTask:(id)sender
 {
     NewTaskViewController *newTaskVC = [[NewTaskViewController alloc] init];
@@ -66,9 +53,7 @@
     };
     
     UINavigationController *newTaskNav = [[UINavigationController alloc] initWithRootViewController:newTaskVC];
-    [self.navigationController presentViewController:newTaskNav animated:YES completion:^{
-        
-    }];
+    [self.navigationController presentViewController:newTaskNav animated:YES completion:nil];
 }
 
 #pragma mark - Table View
