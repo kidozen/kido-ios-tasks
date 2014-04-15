@@ -32,6 +32,7 @@ static CGFloat kNavigationBarOffset = 64;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"New Task";
 
     [self registerForKeyboardNotifications];
     [self addHideTapGestureRecognizer];
@@ -43,15 +44,14 @@ static CGFloat kNavigationBarOffset = 64;
         self.automaticallyAdjustsScrollViewInsets  = NO;
         self.scrollView.frameY = kIOS7FrameOffset;
         
-        CGSize sz  = [UIScreen mainScreen].bounds.size;
-        sz.height = sz.height - self.scrollView.frameY;
-        
-        self.scrollView.frameSize = sz;
-        self.scrollView.contentSize = CGSizeMake(320, self.okButton.frameMaxY + 5);
     }
 #endif
+    CGSize sz  = [UIScreen mainScreen].bounds.size;
+    sz.height = sz.height - self.scrollView.frameY;
+    
+    self.scrollView.frameSize = sz;
+    self.scrollView.contentSize = CGSizeMake(320, self.okButton.frameMaxY + 5);
 
-    self.title = @"New Task";
     [self addCancelButton];
     
     self.titleTextField.accessibilityLabel = @"titleTextField";
@@ -119,12 +119,13 @@ static CGFloat kNavigationBarOffset = 64;
 
 - (void)keyboardWillHide:(NSNotification *)notification
 {
-    CGFloat offset = IS_IOS_VERSION_7_OR_GREATER ? kIOS7FrameOffset : 0;
+    CGFloat offset = IS_IOS_VERSION_7_OR_GREATER ? kIOS7FrameOffset : kNavigationBarOffset;
     
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         self.scrollView.frameHeight = [UIScreen mainScreen].bounds.size.height - offset;
+
         self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,
-                                                 self.okButton.frameMaxY + 5);
+                                                self.okButton.frameMaxY + 5);
 
     } completion:nil];
 }
@@ -162,8 +163,8 @@ static CGFloat kNavigationBarOffset = 64;
                                                        options:nil]
                            lastObject];
     
+    
     textField.inputAccessoryView=accessoryView;
-    accessoryView=nil;
     return YES;
 }
 
