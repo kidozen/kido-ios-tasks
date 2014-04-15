@@ -126,6 +126,7 @@ static CGFloat kNavigationBarOffset = 64;
 
         self.scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width,
                                                 self.okButton.frameMaxY + 5);
+        [self.scrollView scrollRectToVisible:self.okButton.frame animated:YES];
 
     } completion:nil];
 }
