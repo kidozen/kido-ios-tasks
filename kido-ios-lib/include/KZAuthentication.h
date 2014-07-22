@@ -4,6 +4,12 @@
 
 -(void) authenticateUser:(NSString *) user withProvider:(NSString *) provider andPassword:(NSString *) password;
 -(void) authenticateUser:(NSString *) user withProvider:(NSString *) provider andPassword:(NSString *) password completion:(void (^)(id))block;
+
+/**
+ * Starts a passive authentication flow.
+ */
+- (void)doPassiveAuthenticationWithCompletion:(void (^)(id))block;
+
 //custom provider
 -(void) registerProviderWithClassName:(NSString *) className andProviderKey:(NSString *) providerKey;
 -(void) registerProviderWithInstance:(id) instance andProviderKey:(NSString *) providerKey;

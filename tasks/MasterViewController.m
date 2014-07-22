@@ -1,7 +1,7 @@
 #import "MasterViewController.h"
 #import "TasksViewController.h"
 #import "NewTaskViewController.h"
-
+#import <KZApplication.h>
 #import <KZStorage.h>
 
 @interface MasterViewController () {

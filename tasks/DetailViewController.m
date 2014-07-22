@@ -1,5 +1,6 @@
 #import "DetailViewController.h"
 #import <KZStorage.h>
+#import <KZApplication.h>
 
 @interface DetailViewController () {
     KZStorage * _tasksStorage;

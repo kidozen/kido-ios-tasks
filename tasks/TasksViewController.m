@@ -1,6 +1,7 @@
 #import "TasksViewController.h"
 #import "DetailViewController.h"
 #import <KZStorage.h>
+#import <KZApplication.h>
 
 
 @interface TasksViewController ()

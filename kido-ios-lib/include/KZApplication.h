@@ -6,122 +6,174 @@
 //  Copyright 2013 KidoZen All rights reserved.
 //
 
-#import "KZBaseService.h"
-#import "KZNotification.h"
-#import "KZQueue.h"
-#import "KZStorage.h"
-#import "KZConfiguration.h"
-#import "KZMail.h"
-#import "KZSMSSender.h"
 #import "KZLogging.h"
-#import "KZService.h"
-#import "KZDatasource.h"
+#import "KZObject.h"
+
+@class KZApplicationConfiguration;
+@class KZCrashReporter;
+@class KZResponse;
+@class KZQueue;
+@class KZStorage;
+@class KZService;
+@class KZConfiguration;
+@class KZSMSSender;
+@class KZNotification;
+@class KZMail;
+@class KZDatasource;
 
 #if TARGET_OS_IPHONE
-#import "KZPubSubChannel.h"
+@class KZPubSubChannel;
 #endif
-#import "KZAuthentication.h"
-#import "KZWRAPv09IdentityProvider.h"
-#import "KZHTTPRequest.h"
-
 
 typedef void (^AuthCompletionBlock)(id);
 typedef void (^TokenExpiresBlock)(id);
+typedef void (^InitializationCompleteBlock)(KZResponse *);
 
 /**
  *
  * Main KidoZen application object
  *
  */
-@interface KZApplication : KZBaseService <KZAuthentication>
-{
-    id<KZIdentityProvider>  ip ;
-    NSString *_tennantMarketPlace;
-    NSString *_applicationName;
-    NSString *_notificationUrl;
+@interface KZApplication : KZObject
 
-    NSMutableDictionary * _queues;
-    NSMutableDictionary * _configurations;
-    NSMutableDictionary * _storages;
-    NSMutableDictionary * _smssenders;
-    NSMutableDictionary * _channels;
-    NSMutableDictionary * _files;
-    NSMutableDictionary * _services;
-    NSMutableDictionary * _datasources;
-    
-    __block NSTimer* tokenExpirationTimer ;
-}
+@property (nonatomic, readonly) KZCrashReporter *crashreporter;
+@property (nonatomic, copy) InitializationCompleteBlock onInitializationComplete;
+@property (nonatomic, readonly) KZApplicationConfiguration *applicationConfig;
 
 /**
  * Constructor
  *
- * @param tenantMarketPlace The url of the KidoZen marketplace
- * @param applicationName The application name
- * @param callback The ServiceEventListener callback with the operation results
+ * @param tenantMarketPlace The url of the KidoZen marketplace. (Required)
+ * @param applicationName The application name (Required)
+ * @param applicationKey Is the application key that gives you access to logging services (Required)
+ * without username/password authentication.
+ * @param strictSSL Whether we want SSL to be bypassed or not,  only use in development (Required)
+ * @param callback The ServiceEventListener callback with the operation results (optional)
  */
--(id) initWithTennantMarketPlace:(NSString *) tennantMarketPlace applicationName:(NSString *) applicationName andCallback:(void (^)(KZResponse *))callback;
+-(id) initWithTenantMarketPlace:(NSString *)tennantMarketPlace
+                applicationName:(NSString *)applicationName
+                 applicationKey:(NSString *)applicationKey
+                      strictSSL:(BOOL)strictSSL
+                    andCallback:(void (^)(KZResponse *))callback;
 
 /**
- * Constructor
+ * Will create an instance of crash reporter.
+ * When initializing KZApplication with an application key, crash reporting
+ * will be enabled by default.
  *
- * @param tenantMarketPlace The url of the KidoZen marketplace
- * @param application The application name
- * @param bypassSSLVerification Allows to bypass the SSL validation, use it only for development purposes
- * @param callback The ServiceEventListener callback with the operation results
  */
--(id) initWithTennantMarketPlace:(NSString *) tennantMarketPlace applicationName:(NSString *) applicationName bypassSSLValidation:(BOOL) bypassSSL andCallback:(void (^)(KZResponse *))callback;
+- (void)enableCrashReporter;
 
-@property (nonatomic, strong) NSMutableDictionary * identityProviders ;
-@property (nonatomic, strong) NSDictionary * configuration ;
-@property (nonatomic, strong) NSDictionary * securityConfiguration ;
-@property (atomic) BOOL bypassSSLValidation ;
+/*
+ * Will send a string when the app crashes.
+ * @TODO: Cap to a certain amount of bytes.
+ */
+- (void)addBreadCrumb:(NSString *)breadCrumb;
 
-@property (nonatomic, strong) NSString * lastProviderKey;
-@property (nonatomic, strong) NSString * lastUserName;
-@property (nonatomic, strong) NSString * lastPassword;
 
-@property (nonatomic, copy) AuthCompletionBlock authCompletionBlock;
-@property (nonatomic, copy) TokenExpiresBlock tokenExpiresBlock;
-@property (copy, nonatomic) void (^onInitializationComplete) (KZResponse *) ;
+@end
 
-@property (strong, nonatomic) KZMail * mail;
-@property (strong, nonatomic) KZLogging * log;
-@property (strong, nonatomic) KZHTTPClient * defaultClient;
+
+#pragma mark - Authentication Related methods
+
+@interface KZApplication(Authentication)
+
+@property (nonatomic, readonly) KZUser *kzUser;
+@property (nonatomic, readonly) BOOL isAuthenticated;
+@property (nonatomic, readonly) BOOL passiveAuthenticated;
+
+/*
+ * This method will authenticate you to Kidozen. 
+ * To check whether the authentication was successful or not, you should check 
+ * on the callback type, if it's an NSError, the authentication was not OK.
+ * 
+ * @param callback can be a KZResponse or an  NSError, whether the authentication
+ * was successful or not.
+ * 
+ */
+-(void) authenticateUser:(NSString *)user
+            withProvider:(NSString *)provider
+             andPassword:(NSString *)password
+              completion:(void (^)(id))callback;
+
+-(void) authenticateUser:(NSString *)user
+            withProvider:(NSString *)provider
+             andPassword:(NSString *)password;
+
+
+- (void)handleAuthenticationViaApplicationKeyWithCallback:(void(^)(NSError *))callback;
 
 /**
- * Push notification service main entry point
- *
- * @return The Push notification object that allows to interact with the Apple Push Notification Services (APNS)
+ * Starts a passive authentication flow.
+ * @param callback can be a KZResponse or an  NSError, whether the authentication
+ * was successful or not.
  */
-@property (strong, nonatomic) KZNotification * pushNotifications;
+- (void)doPassiveAuthenticationWithCompletion:(void (^)(id))callback;
+
+/* If you want to change the authentication callback, you can do so by
+ * setting this property.
+ */
+- (void) setAuthCompletionBlock:(AuthCompletionBlock)authCompletionBlock;
+
+/*
+ * This is the callback that will get called when your token expires.
+ */
+- (void)setTokenExpiresBlock:(TokenExpiresBlock)tokenExpiresBlock;
+
+
+@end
+
+
+@interface KZApplication(Services)
+
 /**
  * Creates a new Queue object
  *
  * @param name The name that references the Queue instance
  * @return a new Queue object
  */
--(KZQueue *) QueueWithName:(NSString *) name;
+- (KZQueue *)QueueWithName:(NSString *)name;
+
 /**
  * Creates a new Storage object
  *
  * @param name The name that references the Storage instance
  * @return a new Storage object
  */
--(KZStorage *) StorageWithName:(NSString *) name;
+- (KZStorage *)StorageWithName:(NSString *)name;
+
+/**
+ * Creates a new LOBService (LineOfBusiness Service) object
+ *
+ * @param name the service name.
+ * @return a new LOBService object
+ */
+- (KZService *)LOBServiceWithName:(NSString *)name;
+
 /**
  * Creates a new Configuration object
  *
  * @param name The name that references the Configuration instance
  * @return a new Configuration object
  */
--(KZConfiguration *) ConfigurationWithName:(NSString *) name;
+- (KZConfiguration *)ConfigurationWithName:(NSString *)name;
+
 /**
  * Creates a new SMSSender object
  *
  * @param number The phone number to send messages.
  * @return a new SMSSender object
  */
--(KZSMSSender *) SMSSenderWithNumber:(NSString *) number;
+- (KZSMSSender *)SMSSenderWithNumber:(NSString *)number;
+
+/**
+ * Creates a new DataSource object
+ *
+ * @param name the service name.
+ * @return a new DataSource object
+ */
+- (KZDatasource *)DataSourceWithName:(NSString *)name;
+
 #if TARGET_OS_IPHONE
 /**
  * Creates a new PubSubChannel object
@@ -129,8 +181,48 @@ typedef void (^TokenExpiresBlock)(id);
  * @param name The name that references the channel instance
  * @return A new PubSubChannel object
  */
--(KZPubSubChannel *) PubSubChannelWithName:(NSString *) name;
+- (KZPubSubChannel *)PubSubChannelWithName:(NSString *)name;
 #endif
+
+
+
+
+#pragma mark - Logging
+
+@property (readonly, nonatomic) KZLogging * log;
+
+/**
+ * Creates a new entry in the KZApplication log
+ *
+ * @param object a NSDictionary object with the message to write
+ * @param message is the titleMessage that will appear in the market.
+ * @param level The log level: Verbose, Information, Warning, Error, Critical
+ * @throws Exception
+ */
+-(void) writeLog:(id)object
+         message:(NSString *)message
+       withLevel:(LogLevel)level
+      completion:(void (^)(KZResponse *))block;
+
+/**
+ * Clears the KZApplication log
+ *
+ * @param callback The callback with the result of the service call */
+- (void)clearLog:(void (^)(KZResponse *))block;
+
+/**
+ * Creates a new entry in the KZApplication log
+ *
+ * @param callback The callback with the result of the service call
+ */
+- (void)allLogMessages:(void (^)(KZResponse *))block;
+
+
+
+#pragma mark - Mail
+
+@property (readonly, nonatomic) KZMail * mail;
+
 /**
  * Sends an EMail
  *
@@ -142,41 +234,42 @@ typedef void (^TokenExpiresBlock)(id);
  * @param callback The callback with the result of the service call
  * @throws Exception
  */
--(void) sendMailTo:(NSString *)to from:(NSString *) from withSubject:(NSString *) subject andHtmlBody:(NSString *) htmlBody andTextBody:(NSString *)textBody  completion:(void (^)(KZResponse *))block;
-/**
- * Creates a new entry in the KZApplication log
- *
- * @param message a NSDictionary object with the message to write
- * @param level The log level: Verbose, Information, Warning, Error, Critical
- * @throws Exception
- */
--(void) writeLog:(id) message withLevel:(LogLevel) level completion:(void (^)(KZResponse *))block;
-/**
- * Clears the KZApplication log
- *
- * @param callback The callback with the result of the service call */
--(void) clearLog:(void (^)(KZResponse *))block;
+-(void) sendMailTo:(NSString *)to
+              from:(NSString *)from
+       withSubject:(NSString *)subject
+       andHtmlBody:(NSString *)htmlBody
+       andTextBody:(NSString *)textBody
+        completion:(void (^)(KZResponse *))block;
 
 /**
- * Creates a new entry in the KZApplication log
+ * Sends an email with attachments.
  *
+ * @param to Destination email address
+ * @param from Source email address
+ * @param subject The email subject
+ * @param htmlBody The email body in HTML format
+ * @param textBody The email body
+ * @parm attachments is an array with all attachements you want to send.
  * @param callback The callback with the result of the service call
  */
--(void) allLogMessages:(void (^)(KZResponse *))block;
+-(void) sendMailTo:(NSString *)to
+              from:(NSString *)from
+       withSubject:(NSString *)subject
+       andHtmlBody:(NSString *)htmlBody
+       andTextBody:(NSString *)textBody
+       attachments:(NSDictionary *)attachments
+        completion:(void (^)(KZResponse *))block;
+
+
+
+#pragma mark - PushNotifications
 
 /**
- * Creates a new LOBService object
+ * Push notification service main entry point
  *
- * @param name the service name.
- * @return a new LOBService object
+ * @return The Push notification object that allows to interact with the Apple Push Notification Services (APNS)
  */
--(KZService *) LOBServiceWithName:(NSString *) name;
+@property (readonly, nonatomic) KZNotification * pushNotifications;
 
-/**
- * Creates a new DataSource object
- *
- * @param name the service name.
- * @return a new DataSource object
- */
--(KZDatasource *) DataSourceWithName:(NSString *) name;
 @end
+

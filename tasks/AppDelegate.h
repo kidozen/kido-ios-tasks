@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
-#import <KZApplication.h>
+
+
+@class KZApplication;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

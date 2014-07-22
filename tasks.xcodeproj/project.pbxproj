@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D136EDE197EBF6D003DAF47 /* kz.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D136EDD197EBF6D003DAF47 /* kz.client.a */; };
 		6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D15D58318F6DD690081413A /* libc++.dylib */; };
 		6D3B4E9518FC362D004CCE88 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B4E9418FC362D004CCE88 /* UIView+Frame.m */; };
 		6D3B4EA218FC815F004CCE88 /* CancelDoneToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B4EA118FC815F004CCE88 /* CancelDoneToolBar.xib */; };
 		6DBE413C18FC2B4A00EB2613 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */; };
 		6DBE413D18FC2B4A00EB2613 /* NewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */; };
-		AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */; };
-		AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */; };
 		AABD57B01676441300445A2A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57AF1676441300445A2A /* Security.framework */; };
 		AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B21676441900445A2A /* libicucore.dylib */; };
 		AABD57B51676442100445A2A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B41676442100445A2A /* CFNetwork.framework */; };
@@ -34,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D136EDD197EBF6D003DAF47 /* kz.client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = kz.client.a; path = "kido-ios-lib/kz.client.a"; sourceTree = "<group>"; };
 		6D15D58318F6DD690081413A /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		6D3B4E9318FC362D004CCE88 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		6D3B4E9418FC362D004CCE88 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
@@ -41,8 +41,6 @@
 		6DBE413918FC2B4A00EB2613 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskViewController.xib; sourceTree = "<group>"; };
-		AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocketRocket.a; path = "kido-ios-lib/libSocketRocket.a"; sourceTree = "<group>"; };
-		AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libkidozen.client.a; path = "kido-ios-lib/libkidozen.client.a"; sourceTree = "<group>"; };
 		AABD57AF1676441300445A2A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		AABD57B21676441900445A2A /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		AABD57B41676442100445A2A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -75,10 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D136EDE197EBF6D003DAF47 /* kz.client.a in Frameworks */,
 				6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */,
-				AA50FED318E5FB5200DE42F7 /* libSocketRocket.a in Frameworks */,
 				AABD57B01676441300445A2A /* Security.framework in Frameworks */,
-				AA52DB1318E5FDAB00F76FB7 /* libkidozen.client.a in Frameworks */,
 				AABD57B51676442100445A2A /* CFNetwork.framework in Frameworks */,
 				AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */,
 				AACFD34F1675368100E02A9F /* UIKit.framework in Frameworks */,
@@ -110,9 +107,8 @@
 		AACFD34D1675368100E02A9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D136EDD197EBF6D003DAF47 /* kz.client.a */,
 				6D15D58318F6DD690081413A /* libc++.dylib */,
-				AA52DB1218E5FDAB00F76FB7 /* libkidozen.client.a */,
-				AA50FED018E5F73C00DE42F7 /* libSocketRocket.a */,
 				AABD57B41676442100445A2A /* CFNetwork.framework */,
 				AABD57B21676441900445A2A /* libicucore.dylib */,
 				AABD57AF1676441300445A2A /* Security.framework */,
@@ -285,6 +281,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$SRCROOT/kido-ios-lib/include",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -306,6 +307,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$SRCROOT/kido-ios-lib/include",
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -323,6 +329,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/kido-ios-lib",
+					"$(PROJECT_DIR)/kido-ios-lib",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -343,6 +350,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/kido-ios-lib",
+					"$(PROJECT_DIR)/kido-ios-lib",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

@@ -6,7 +6,7 @@
  *
  */
 #import <Foundation/Foundation.h>
-#import "KZHTTPClient.h"
+#import <SVHTTPClient.h>
 #import "KZIdentityProvider.h"
 
 @interface KZADFSIdentityProvider : NSObject <KZIdentityProvider, NSURLConnectionDelegate>
@@ -19,5 +19,5 @@
 }
 @property (nonatomic, strong) NSString * token;
 @property (nonatomic, strong) RequestTokenCompletionBlock requestCompletion;
-@property (atomic) BOOL bypassSSLValidation;
+@property (nonatomic, assign) BOOL strictSSL;
 @end
