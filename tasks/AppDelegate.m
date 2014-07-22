@@ -5,6 +5,7 @@
 #define APP     @"tasks"
 #define USER    @"your user @kidozen.com"
 #define PASS    @"your secret"
+#define APPLICATION_KEY @"You application key"
 
 @implementation AppDelegate
 
