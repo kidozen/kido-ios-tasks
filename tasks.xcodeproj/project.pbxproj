@@ -326,6 +326,7 @@
 				GCC_PREFIX_HEADER = "tasks/tasks-Prefix.pch";
 				HEADER_SEARCH_PATHS = "./kido-ios-lib/include";
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/kido-ios-lib",
@@ -347,6 +348,7 @@
 				GCC_PREFIX_HEADER = "tasks/tasks-Prefix.pch";
 				HEADER_SEARCH_PATHS = "./kido-ios-lib/include";
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/kido-ios-lib",
