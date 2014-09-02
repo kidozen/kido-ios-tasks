@@ -13,6 +13,7 @@
     #import <Foundation/Foundation.h>
 
     #import "AppDelegate.h"
+    #import "LocalyticsSession.h"
 
     #define taskApplicationDelegate (AppDelegate *)[[UIApplication sharedApplication] delegate]
 

@@ -64,6 +64,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[LocalyticsSession shared] tagScreen:@"TasksList"];
+
     [self configureView];
 }
 

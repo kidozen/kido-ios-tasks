@@ -36,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[LocalyticsSession shared] tagScreen:@"TaskDetail"];
+
     [self configureView];
 }
 
@@ -48,6 +50,8 @@
     NSString *taskId = [self.detailItem objectForKey:@"_id"];
     [_tasksStorage deleteUsingId:taskId withBlock:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
+        [[LocalyticsSession shared] tagScreen:@"TaskDeleted"];
+
     }];
 }
 //UPDATE TASK
@@ -59,6 +63,8 @@
     
     [_tasksStorage updateUsingId:taskId object:updatedTask completion:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
+        [[LocalyticsSession shared] tagScreen:@"TaskCompleted"];
+
     }];
 }
 
@@ -70,8 +76,14 @@
                                                  withSubject:[self.detailItem objectForKey:@"title"]
                                                  andHtmlBody:@""
                                                  andTextBody:[self.detailItem objectForKey:@"desc"]
-                                                  completion:^(KZResponse * k) {
+                                                  completion:^(KZResponse * k)
+    {
+        
         NSAssert(!k.error, @"error must be null");
+        [[LocalyticsSession shared] tagScreen:@"SentMail"];
+
+        
+                                                      
     }];
     
 }
