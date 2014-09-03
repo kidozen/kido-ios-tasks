@@ -14,18 +14,23 @@
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     __weak AppDelegate *safeMe = self;
     
+    
     self.kidozenApplication = [[KZApplication alloc] initWithTenantMarketPlace:TENANT
                                                                applicationName:APP
                                                                 applicationKey:APPLICATION_KEY
                                                                      strictSSL:NO
                                                                    andCallback:^(KZResponse *response)
     {
+        [[LocalyticsSession shared] integrateLocalytics:LOCALYTICS_KEY launchOptions:launchOptions];
+        [LocalyticsSession shared].loggingEnabled = YES;
+
         NSAssert(!response.error, @"error must be null");
         [safeMe.kidozenApplication authenticateUser:USER
                                        withProvider:@"Kidozen"
                                         andPassword:PASS
                                          completion:^(id kr)
         {
+            
             NSAssert(![kr  isKindOfClass:[NSError class]], @"error must be null");
             dispatch_semaphore_signal(semaphore);
         }];
