@@ -50,7 +50,7 @@
     NSString *taskId = [self.detailItem objectForKey:@"_id"];
     [_tasksStorage deleteUsingId:taskId withBlock:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
-        [[LocalyticsSession shared] tagScreen:@"TaskDeleted"];
+        [[LocalyticsSession shared] tagEvent:@"TaskDeleted"];
 
     }];
 }
@@ -63,7 +63,7 @@
     
     [_tasksStorage updateUsingId:taskId object:updatedTask completion:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
-        [[LocalyticsSession shared] tagScreen:@"TaskCompleted"];
+        [[LocalyticsSession shared] tagEvent:@"TaskCompleted"];
 
     }];
 }
@@ -80,7 +80,7 @@
     {
         
         NSAssert(!k.error, @"error must be null");
-        [[LocalyticsSession shared] tagScreen:@"SentMail"];
+        [[LocalyticsSession shared] tagEvent:@"SentMail"];
 
         
                                                       
