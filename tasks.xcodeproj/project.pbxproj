@@ -13,11 +13,7 @@
 		6D3B4EA218FC815F004CCE88 /* CancelDoneToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B4EA118FC815F004CCE88 /* CancelDoneToolBar.xib */; };
 		6DBE413C18FC2B4A00EB2613 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */; };
 		6DBE413D18FC2B4A00EB2613 /* NewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */; };
-		6DE74FBE19B5FF46001FD3BB /* libLocalyticsAMP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FBD19B5FF46001FD3BB /* libLocalyticsAMP.a */; };
-		6DE74FC619B60045001FD3BB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FC519B60045001FD3BB /* libz.dylib */; };
-		6DE74FC819B6004B001FD3BB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FC719B6004B001FD3BB /* libsqlite3.dylib */; };
-		6DE74FCA19B60051001FD3BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FC919B60051001FD3BB /* SystemConfiguration.framework */; };
-		6DE74FCC19B60079001FD3BB /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FCB19B60079001FD3BB /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6DDCFD1D19B8AE4A0091926E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCFD1C19B8AE4A0091926E /* CoreTelephony.framework */; };
 		AABD57B01676441300445A2A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57AF1676441300445A2A /* Security.framework */; };
 		AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B21676441900445A2A /* libicucore.dylib */; };
 		AABD57B51676442100445A2A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B41676442100445A2A /* CFNetwork.framework */; };
@@ -46,9 +42,7 @@
 		6DBE413918FC2B4A00EB2613 /* NewTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTaskViewController.h; sourceTree = "<group>"; };
 		6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTaskViewController.m; sourceTree = "<group>"; };
 		6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTaskViewController.xib; sourceTree = "<group>"; };
-		6DE74FBD19B5FF46001FD3BB /* libLocalyticsAMP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLocalyticsAMP.a; path = "localitycs-lib/libLocalyticsAMP.a"; sourceTree = "<group>"; };
-		6DE74FC319B60013001FD3BB /* LocalyticsAmpSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalyticsAmpSession.h; path = "localitycs-lib/include/LocalyticsAmpSession.h"; sourceTree = SOURCE_ROOT; };
-		6DE74FC419B60013001FD3BB /* LocalyticsSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocalyticsSession.h; path = "localitycs-lib/include/LocalyticsSession.h"; sourceTree = SOURCE_ROOT; };
+		6DDCFD1C19B8AE4A0091926E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		6DE74FC519B60045001FD3BB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6DE74FC719B6004B001FD3BB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		6DE74FC919B60051001FD3BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -85,11 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DE74FCC19B60079001FD3BB /* AdSupport.framework in Frameworks */,
-				6DE74FCA19B60051001FD3BB /* SystemConfiguration.framework in Frameworks */,
-				6DE74FC819B6004B001FD3BB /* libsqlite3.dylib in Frameworks */,
-				6DE74FC619B60045001FD3BB /* libz.dylib in Frameworks */,
-				6DE74FBE19B5FF46001FD3BB /* libLocalyticsAMP.a in Frameworks */,
+				6DDCFD1D19B8AE4A0091926E /* CoreTelephony.framework in Frameworks */,
 				6D136EDE197EBF6D003DAF47 /* kz.client.a in Frameworks */,
 				6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */,
 				AABD57B01676441300445A2A /* Security.framework in Frameworks */,
@@ -107,18 +97,8 @@
 		6DE74FBF19B5FF52001FD3BB /* thirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				6DE74FC019B5FF59001FD3BB /* localytics */,
 			);
 			name = thirdParty;
-			sourceTree = "<group>";
-		};
-		6DE74FC019B5FF59001FD3BB /* localytics */ = {
-			isa = PBXGroup;
-			children = (
-				6DE74FC319B60013001FD3BB /* LocalyticsAmpSession.h */,
-				6DE74FC419B60013001FD3BB /* LocalyticsSession.h */,
-			);
-			name = localytics;
 			sourceTree = "<group>";
 		};
 		AACFD33F1675368100E02A9F = {
@@ -141,11 +121,11 @@
 		AACFD34D1675368100E02A9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DDCFD1C19B8AE4A0091926E /* CoreTelephony.framework */,
 				6DE74FCB19B60079001FD3BB /* AdSupport.framework */,
 				6DE74FC919B60051001FD3BB /* SystemConfiguration.framework */,
 				6DE74FC719B6004B001FD3BB /* libsqlite3.dylib */,
 				6DE74FC519B60045001FD3BB /* libz.dylib */,
-				6DE74FBD19B5FF46001FD3BB /* libLocalyticsAMP.a */,
 				6D136EDD197EBF6D003DAF47 /* kz.client.a */,
 				6D15D58318F6DD690081413A /* libc++.dylib */,
 				AABD57B41676442100445A2A /* CFNetwork.framework */,
@@ -364,17 +344,13 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tasks/tasks-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"./kido-ios-lib/include",
-					"./localitycs-lib/include",
-				);
+				HEADER_SEARCH_PATHS = "./kido-ios-lib/include";
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/kido-ios-lib",
 					"$(PROJECT_DIR)/kido-ios-lib",
-					"$(PROJECT_DIR)/localitycs-lib",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -390,17 +366,13 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "tasks/tasks-Prefix.pch";
-				HEADER_SEARCH_PATHS = (
-					"./kido-ios-lib/include",
-					"./localitycs-lib/include",
-				);
+				HEADER_SEARCH_PATHS = "./kido-ios-lib/include";
 				INFOPLIST_FILE = "tasks/tasks-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/kido-ios-lib",
 					"$(PROJECT_DIR)/kido-ios-lib",
-					"$(PROJECT_DIR)/localitycs-lib",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

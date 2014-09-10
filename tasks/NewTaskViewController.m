@@ -33,7 +33,7 @@ static CGFloat kNavigationBarOffset = 64;
 {
     [super viewDidLoad];
     self.title = @"New Task";
-    [[LocalyticsSession shared] tagScreen:@"NewTask"];
+    [taskApplicationDelegate.kidozenApplication tagScreen:@"NewTask"];
 
     [self registerForKeyboardNotifications];
     [self addHideTapGestureRecognizer];

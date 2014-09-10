@@ -1,7 +1,7 @@
 #import "MasterViewController.h"
 #import "TasksViewController.h"
 #import "NewTaskViewController.h"
-#import "LocalyticsAmpSession.h"
+#import "AppDelegate.h"
 #import <KZApplication.h>
 #import <KZStorage.h>
 
@@ -18,8 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[LocalyticsSession shared] tagScreen:@"Home"];
-
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewTask:)];
@@ -54,7 +52,7 @@
                 NSLog(@"Error found while creating task. %@", kr.error);
             }
             
-            [[LocalyticsSession shared] tagEvent:@"TaskCreated" ];
+            [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskCreated" ];
             
             NSAssert(!kr.error, @"error must be null");
         }];

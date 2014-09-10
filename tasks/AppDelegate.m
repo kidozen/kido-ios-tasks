@@ -21,9 +21,7 @@
                                                                      strictSSL:NO
                                                                    andCallback:^(KZResponse *response)
     {
-        [[LocalyticsSession shared] integrateLocalytics:LOCALYTICS_KEY launchOptions:launchOptions];
-        [LocalyticsSession shared].loggingEnabled = YES;
-
+        
         NSAssert(!response.error, @"error must be null");
         [safeMe.kidozenApplication authenticateUser:USER
                                        withProvider:@"Kidozen"
@@ -41,4 +39,16 @@
 
     return YES;
 }
+
+
+- (void)applicationWillResignActive:(UIApplication *)application
+{
+    NSLog(@"Application will resign active");
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    NSLog(@"applicationDidEnterBackground");
+}
+
 @end

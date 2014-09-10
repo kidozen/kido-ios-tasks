@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[LocalyticsSession shared] tagScreen:@"TaskDetail"];
+    [taskApplicationDelegate.kidozenApplication tagScreen:@"TaskDetail"];
 
     [self configureView];
 }
@@ -50,7 +50,7 @@
     NSString *taskId = [self.detailItem objectForKey:@"_id"];
     [_tasksStorage deleteUsingId:taskId withBlock:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
-        [[LocalyticsSession shared] tagEvent:@"TaskDeleted"];
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskDeleted"];
 
     }];
 }
@@ -63,7 +63,7 @@
     
     [_tasksStorage updateUsingId:taskId object:updatedTask completion:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
-        [[LocalyticsSession shared] tagEvent:@"TaskCompleted"];
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskCompleted"];
 
     }];
 }
@@ -80,7 +80,7 @@
     {
         
         NSAssert(!k.error, @"error must be null");
-        [[LocalyticsSession shared] tagEvent:@"SentMail"];
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"SentMail"];
 
         
                                                       
