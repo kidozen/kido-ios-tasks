@@ -28,14 +28,13 @@
 - (void)configureView
 {
     if (self.tasksType) {
-        if (!_tasks) {
             _tasks = [[NSMutableArray alloc] init];
             _tasksStorage = [[taskApplicationDelegate kidozenApplication] StorageWithName:@"tasks"];
 
             
             if ([_tasksType isEqualToString:@"All"]) {
                 [_tasksStorage all:^(KZResponse * k) {
-                    _tasks = [k response];
+                    [_tasks addObjectsFromArray:[k response]];
                     [self.tableView reloadData];
                 }];
             }
@@ -44,11 +43,10 @@
                 NSString * completed = [_tasksType isEqualToString:@"Completed"] ? @"true" : @"false";
                 NSString * queryString = [NSString stringWithFormat:@"{\"completed\":%@}", completed];
                 [_tasksStorage query:queryString withBlock:^(KZResponse * k) {
-                    _tasks = [k response];
+                    [_tasks addObjectsFromArray:[k response]];
                     [self.tableView reloadData];
                 }];
             }
-        }
     }
 }
 
@@ -61,12 +59,16 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self configureView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[LocalyticsSession shared] tagScreen:@"TasksList"];
+    [taskApplicationDelegate.kidozenApplication tagScreen:@"TasksList"];
 
-    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,6 +86,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+
     return [_tasks count];
 }
 
