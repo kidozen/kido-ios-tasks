@@ -18,7 +18,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewTask:)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -37,6 +36,8 @@
 
 - (void)insertNewTask:(id)sender
 {
+    [taskApplicationDelegate.kidozenApplication tagClick:@"PlusButton"];
+
     NewTaskViewController *newTaskVC = [[NewTaskViewController alloc] init];
     newTaskVC.didEnterNewTask = ^(NSString *titleString, NSString *description, NSString *category) {
         if (!_tasksStorage) {

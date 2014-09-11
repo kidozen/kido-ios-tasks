@@ -49,6 +49,8 @@
 //DELETE TASK
 - (IBAction)deleteTouch:(id)sender {
     NSString *taskId = [self.detailItem objectForKey:@"_id"];
+    [taskApplicationDelegate.kidozenApplication tagClick:@"deleteButton"];
+
     [_tasksStorage deleteUsingId:taskId withBlock:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
         NSString *category = [self.detailItem objectForKey:@"category"];
@@ -62,7 +64,8 @@
 
     NSMutableDictionary *updatedTask = [NSMutableDictionary dictionaryWithDictionary:self.detailItem];
     [updatedTask setObject:[NSNumber numberWithBool:true] forKey:@"completed"];
-    
+    [taskApplicationDelegate.kidozenApplication tagClick:@"completeButton"];
+
     [_tasksStorage updateUsingId:taskId object:updatedTask completion:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
         NSString *category = [self.detailItem objectForKey:@"category"];
@@ -74,6 +77,8 @@
 
 //SEND EMAIL
 - (IBAction)sendTouch:(id)sender {
+    
+    [taskApplicationDelegate.kidozenApplication tagClick:@"sendEmailButton"];
     
     [[taskApplicationDelegate kidozenApplication] sendMailTo:@"christian.carnero@gmail.com"
                                                         from:@"christian.carnero@tellago.com"

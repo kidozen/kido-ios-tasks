@@ -85,6 +85,8 @@ static CGFloat kNavigationBarOffset = 64;
 
 - (IBAction)okButtonPressed:(id)sender {
     
+    [taskApplicationDelegate.kidozenApplication tagClick:@"okButton"];
+
     if ([self.titleTextField.text length] > 0 &&
         [self.descriptionTextView.text length] > 0) {
         
@@ -92,6 +94,7 @@ static CGFloat kNavigationBarOffset = 64;
             NSString *titleString = self.titleTextField.text;
             NSString *description = self.descriptionTextView.text;
             NSString *category = self.bugFeatureButton.selected == YES ? @"Bug" : @"Feature";
+
             self.didEnterNewTask(titleString, description, category);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
@@ -100,7 +103,7 @@ static CGFloat kNavigationBarOffset = 64;
 
 - (void) addCancelButton
 {
-    
+
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                target:self
                                                                                action:@selector(cancel)];
@@ -111,6 +114,8 @@ static CGFloat kNavigationBarOffset = 64;
 
 - (void)cancel
 {
+    [taskApplicationDelegate.kidozenApplication tagClick:@"CancelCreateButton"];
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
