@@ -38,13 +38,14 @@
 - (void)insertNewTask:(id)sender
 {
     NewTaskViewController *newTaskVC = [[NewTaskViewController alloc] init];
-    newTaskVC.didEnterNewTask = ^(NSString *titleString, NSString *description) {
+    newTaskVC.didEnterNewTask = ^(NSString *titleString, NSString *description, NSString *category) {
         if (!_tasksStorage) {
             _tasksStorage = [[taskApplicationDelegate kidozenApplication] StorageWithName:@"tasks"];
         }
         
         NSDictionary *params = @{@"title": titleString,
                                  @"desc": description,
+                                 @"category" : category,
                                  @"completed": @(NO)};
         
         [_tasksStorage create:params completion:^(KZResponse * kr) {
@@ -52,7 +53,9 @@
                 NSLog(@"Error found while creating task. %@", kr.error);
             }
             
-            [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskCreated" ];
+            
+            
+            [taskApplicationDelegate.kidozenApplication tagEvent:@"task created" attributes:@{@"category":category}];
             
             NSAssert(!kr.error, @"error must be null");
         }];

@@ -67,7 +67,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [taskApplicationDelegate.kidozenApplication tagScreen:@"TasksList"];
+    [taskApplicationDelegate.kidozenApplication tagView:@"TasksList"];
 
 }
 
@@ -100,10 +100,11 @@
     return cell;
 }
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"detailTask"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if ([[segue identifier] isEqualToString:@"detailTask"] || [[segue identifier] isEqualToString:@"detailTask2"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         id object = _tasks[indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }

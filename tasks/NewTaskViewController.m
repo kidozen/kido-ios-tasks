@@ -19,6 +19,8 @@ static CGFloat kNavigationBarOffset = 64;
 @property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UIButton *okButton;
+@property (weak, nonatomic) IBOutlet UIButton *bugFeatureButton;
+@property (weak, nonatomic) IBOutlet UIButton *featureButton;
 
 @end
 
@@ -29,12 +31,17 @@ static CGFloat kNavigationBarOffset = 64;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"New Task";
-    [taskApplicationDelegate.kidozenApplication tagScreen:@"NewTask"];
-
+    [taskApplicationDelegate.kidozenApplication tagView:@"NewTask"];
+    self.bugFeatureButton.backgroundColor = [UIColor lightGrayColor];
+    self.featureButton.backgroundColor = [UIColor whiteColor];
+    self.bugFeatureButton.selected = YES;
+    self.featureButton.selected = NO;
+    
     [self registerForKeyboardNotifications];
     [self addHideTapGestureRecognizer];
     
@@ -84,7 +91,8 @@ static CGFloat kNavigationBarOffset = 64;
         if (self.didEnterNewTask != nil) {
             NSString *titleString = self.titleTextField.text;
             NSString *description = self.descriptionTextView.text;
-            self.didEnterNewTask(titleString, description);
+            NSString *category = self.bugFeatureButton.selected == YES ? @"Bug" : @"Feature";
+            self.didEnterNewTask(titleString, description, category);
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     }
@@ -201,6 +209,24 @@ static CGFloat kNavigationBarOffset = 64;
 - (IBAction)donePressed:(id)sender
 {
     [self hideKeyboard];
+}
+
+- (IBAction)bugPressed:(id)sender {
+    self.bugFeatureButton.selected = YES;
+    self.featureButton.selected = NO;
+    
+    self.bugFeatureButton.backgroundColor = [UIColor lightGrayColor];
+    self.featureButton.backgroundColor = [UIColor whiteColor];
+
+}
+
+- (IBAction)featurePressed:(id)sender {
+    self.bugFeatureButton.selected = NO;
+    self.featureButton.selected = YES;
+
+    self.bugFeatureButton.backgroundColor = [UIColor whiteColor];
+    self.featureButton.backgroundColor = [UIColor lightGrayColor];
+
 }
 
 @end

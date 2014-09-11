@@ -75,8 +75,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                                <rect key="frame" x="20" y="149" width="280" height="17"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Detail view content goes here" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                                <rect key="frame" x="20" y="153" width="280" height="72"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -115,6 +115,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cateogory" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ice-NL-hAK">
+                                <rect key="frame" x="20" y="116" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -134,6 +141,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26"/>
                     <connections>
+                        <outlet property="categoryLabel" destination="Ice-NL-hAK" id="GVb-FC-9SK"/>
                         <outlet property="completeButton" destination="anI-vh-RVj" id="qju-I8-dWk"/>
                         <outlet property="deleteButton" destination="QzR-4X-GJp" id="TT1-c7-frX"/>
                         <outlet property="detailDescriptionLabel" destination="27" id="28"/>
@@ -177,6 +185,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="21" kind="push" identifier="detailTask" trigger="accessoryAction" id="VUQ-V0-z7T"/>
+                                    <segue destination="21" kind="push" identifier="detailTask2" id="2bl-jS-MRZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -197,4 +206,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="2bl-jS-MRZ"/>
+    </inferredMetricsTieBreakers>
 </document>

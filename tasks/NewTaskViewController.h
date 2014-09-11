@@ -10,6 +10,6 @@
 
 @interface NewTaskViewController : UIViewController
 
-@property (nonatomic, copy) void (^didEnterNewTask)(NSString *title, NSString *description);
+@property (nonatomic, copy) void (^didEnterNewTask)(NSString *title, NSString *description, NSString *category);
 
 @end

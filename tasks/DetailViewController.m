@@ -30,13 +30,14 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem objectForKey:@"desc"];
         self.titleLabel.text = [self.detailItem objectForKey:@"title"];
+        self.categoryLabel.text = [self.detailItem objectForKey:@"category"];
     }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [taskApplicationDelegate.kidozenApplication tagScreen:@"TaskDetail"];
+    [taskApplicationDelegate.kidozenApplication tagView:@"TaskDetail"];
 
     [self configureView];
 }
@@ -50,7 +51,8 @@
     NSString *taskId = [self.detailItem objectForKey:@"_id"];
     [_tasksStorage deleteUsingId:taskId withBlock:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
-        [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskDeleted"];
+        NSString *category = [self.detailItem objectForKey:@"category"];
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"Task Deleted" attributes:@{@"category": category}];
 
     }];
 }
@@ -63,7 +65,9 @@
     
     [_tasksStorage updateUsingId:taskId object:updatedTask completion:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
-        [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskCompleted"];
+        NSString *category = [self.detailItem objectForKey:@"category"];
+
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"Task Completed" attributes:@{@"category": category}];
 
     }];
 }
@@ -80,10 +84,8 @@
     {
         
         NSAssert(!k.error, @"error must be null");
-        [taskApplicationDelegate.kidozenApplication tagEvent:@"SentMail"];
-
-        
-                                                      
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"sent email"
+                                                  attributes:@{@"mailTo": @"somebody@gmail.com", @"mailFrom:" : @"somebody@nowhere.com"}];
     }];
     
 }

@@ -10,6 +10,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIButton *completeButton;
 @property (weak, nonatomic) IBOutlet UIButton *sendButton;
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 
 - (IBAction)deleteTouch:(id)sender;
 - (IBAction)completeTouch:(id)sender;
