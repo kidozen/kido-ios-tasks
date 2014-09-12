@@ -10,29 +10,29 @@
 	<string>tasks</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AB738DBF-8034-4BCD-940C-0BC3CC87A390</key>
+		<key>E1F5147E15EF93E91B88E0F02A3E551008245203</key>
 		<string>https://github.com/kidozen/kido-ios-tasks</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>tasks.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AB738DBF-8034-4BCD-940C-0BC3CC87A390</key>
+		<key>E1F5147E15EF93E91B88E0F02A3E551008245203</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/kidozen/kido-ios-tasks</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AB738DBF-8034-4BCD-940C-0BC3CC87A390</string>
+	<string>E1F5147E15EF93E91B88E0F02A3E551008245203</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AB738DBF-8034-4BCD-940C-0BC3CC87A390</string>
+			<string>E1F5147E15EF93E91B88E0F02A3E551008245203</string>
 			<key>IDESourceControlWCCName</key>
 			<string>kido-ios-tasks</string>
 		</dict>

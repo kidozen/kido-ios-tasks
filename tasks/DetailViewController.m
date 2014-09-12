@@ -80,8 +80,8 @@
     
     [taskApplicationDelegate.kidozenApplication tagClick:@"sendEmailButton"];
     
-    [[taskApplicationDelegate kidozenApplication] sendMailTo:@"christian.carnero@gmail.com"
-                                                        from:@"christian.carnero@tellago.com"
+    [[taskApplicationDelegate kidozenApplication] sendMailTo:@"nicolas.miyasato@kidozen.com"
+                                                        from:@"nicolas.miyasato@kidozen.com"
                                                  withSubject:[self.detailItem objectForKey:@"title"]
                                                  andHtmlBody:@""
                                                  andTextBody:[self.detailItem objectForKey:@"desc"]

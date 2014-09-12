@@ -28,8 +28,6 @@
                                         andPassword:PASS
                                          completion:^(id kr)
         {
-            [safeMe.kidozenApplication tagSession];
-            
             NSAssert(![kr  isKindOfClass:[NSError class]], @"error must be null");
             dispatch_semaphore_signal(semaphore);
         }];
@@ -51,5 +49,6 @@
 {
     NSLog(@"applicationDidEnterBackground");
 }
+
 
 @end
