@@ -14,7 +14,7 @@
 
     #import "AppDelegate.h"
     #import <KZApplication.h>
-
+#import <SystemConfiguration/SystemConfiguration.h>
     #define taskApplicationDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 
     #define IS_IOS_VERSION_7_OR_GREATER  IS_IOS_VERSION_GREATER_THAN_OR_EQUAL_TO(7.0f)

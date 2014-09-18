@@ -13,6 +13,7 @@
 		6D3B4EA218FC815F004CCE88 /* CancelDoneToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D3B4EA118FC815F004CCE88 /* CancelDoneToolBar.xib */; };
 		6DBE413C18FC2B4A00EB2613 /* NewTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DBE413A18FC2B4A00EB2613 /* NewTaskViewController.m */; };
 		6DBE413D18FC2B4A00EB2613 /* NewTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DBE413B18FC2B4A00EB2613 /* NewTaskViewController.xib */; };
+		6DCD625819C774BE00700BA4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FC919B60051001FD3BB /* SystemConfiguration.framework */; };
 		6DDCFD1D19B8AE4A0091926E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DDCFD1C19B8AE4A0091926E /* CoreTelephony.framework */; };
 		AABD57B01676441300445A2A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57AF1676441300445A2A /* Security.framework */; };
 		AABD57B31676441900445A2A /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AABD57B21676441900445A2A /* libicucore.dylib */; };
@@ -79,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DCD625819C774BE00700BA4 /* SystemConfiguration.framework in Frameworks */,
 				6DDCFD1D19B8AE4A0091926E /* CoreTelephony.framework in Frameworks */,
 				6D136EDE197EBF6D003DAF47 /* kz.client.a in Frameworks */,
 				6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */,
