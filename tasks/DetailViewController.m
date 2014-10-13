@@ -30,7 +30,7 @@
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem objectForKey:@"desc"];
         self.titleLabel.text = [self.detailItem objectForKey:@"title"];
-        self.categoryLabel.text = [self.detailItem objectForKey:@"category"];
+        self.categoryLabel.text = [self.detailItem objectForKey:@"category"] ? : @"no-category";
     }
 }
 
@@ -54,6 +54,10 @@
     [_tasksStorage deleteUsingId:taskId withBlock:^(KZResponse * k) {
         NSAssert(!k.error, @"error must be null");
         NSString *category = [self.detailItem objectForKey:@"category"];
+        if (category == nil) {
+            category = @"no-category";
+        }
+        
         [taskApplicationDelegate.kidozenApplication tagEvent:@"Task Deleted" attributes:@{@"category": category}];
 
     }];
@@ -70,6 +74,10 @@
         NSAssert(!k.error, @"error must be null");
         NSString *category = [self.detailItem objectForKey:@"category"];
 
+        if (category == nil) {
+            category = @"no-category";
+        }
+        
         [taskApplicationDelegate.kidozenApplication tagEvent:@"Task Completed" attributes:@{@"category": category}];
 
     }];

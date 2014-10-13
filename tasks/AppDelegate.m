@@ -30,6 +30,7 @@
         {
             NSAssert(![kr  isKindOfClass:[NSError class]], @"error must be null");
             dispatch_semaphore_signal(semaphore);
+            [safeMe.kidozenApplication enableAnalytics];
         }];
 
     }];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D03275219DC526C009C8B2B /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE74FC519B60045001FD3BB /* libz.dylib */; };
 		6D136EDE197EBF6D003DAF47 /* kz.client.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D136EDD197EBF6D003DAF47 /* kz.client.a */; };
 		6D15D58418F6DD690081413A /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D15D58318F6DD690081413A /* libc++.dylib */; };
 		6D3B4E9518FC362D004CCE88 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3B4E9418FC362D004CCE88 /* UIView+Frame.m */; };
@@ -80,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D03275219DC526C009C8B2B /* libz.dylib in Frameworks */,
 				6DCD625819C774BE00700BA4 /* SystemConfiguration.framework in Frameworks */,
 				6DDCFD1D19B8AE4A0091926E /* CoreTelephony.framework in Frameworks */,
 				6D136EDE197EBF6D003DAF47 /* kz.client.a in Frameworks */,
@@ -96,13 +98,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DE74FBF19B5FF52001FD3BB /* thirdParty */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = thirdParty;
-			sourceTree = "<group>";
-		};
 		AACFD33F1675368100E02A9F = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +138,6 @@
 		AACFD3541675368100E02A9F /* tasks */ = {
 			isa = PBXGroup;
 			children = (
-				6DE74FBF19B5FF52001FD3BB /* thirdParty */,
 				AACFD35D1675368100E02A9F /* AppDelegate.h */,
 				AACFD35E1675368100E02A9F /* AppDelegate.m */,
 				AABD57CC167646AD00445A2A /* Constants.h */,
