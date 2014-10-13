@@ -97,7 +97,7 @@
     {
         
         NSAssert(!k.error, @"error must be null");
-        [taskApplicationDelegate.kidozenApplication tagEvent:@"sent email"
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"SentEmail"
                                                   attributes:@{@"mailTo": @"somebody@gmail.com", @"mailFrom:" : @"somebody@nowhere.com"}];
     }];
     
