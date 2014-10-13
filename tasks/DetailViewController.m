@@ -58,7 +58,7 @@
             category = @"no-category";
         }
         
-        [taskApplicationDelegate.kidozenApplication tagEvent:@"Task Deleted" attributes:@{@"category": category}];
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskDeleted" attributes:@{@"category": category}];
 
     }];
 }
@@ -78,7 +78,7 @@
             category = @"no-category";
         }
         
-        [taskApplicationDelegate.kidozenApplication tagEvent:@"Task Completed" attributes:@{@"category": category}];
+        [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskCompleted" attributes:@{@"category": category}];
 
     }];
 }

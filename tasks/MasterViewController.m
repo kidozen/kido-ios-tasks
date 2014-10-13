@@ -56,7 +56,7 @@
             
             
             
-            [taskApplicationDelegate.kidozenApplication tagEvent:@"task created" attributes:@{@"category":category}];
+            [taskApplicationDelegate.kidozenApplication tagEvent:@"TaskCreated" attributes:@{@"category":category}];
             
             NSAssert(!kr.error, @"error must be null");
         }];
