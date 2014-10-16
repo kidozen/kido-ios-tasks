@@ -1,5 +1,6 @@
 #import "AppDelegate.h"
 #import <KZApplication.h>
+#import <KZAnalytics.h>
 
 #define TENANT  @"https://marketplace.kidocloud.com"
 #define APP     @"tasks"
